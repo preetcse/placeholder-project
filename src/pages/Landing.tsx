@@ -28,30 +28,44 @@ export default function Landing() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
       className="min-h-screen flex items-center justify-center"
+      role="main"
+      aria-labelledby="landing-heading"
     >
-      <div className="text-center">
+      <div className="text-center" role="region" aria-label="Landing content">
         <img
           src="./logo.svg"
-          alt="Logo"
+          alt="Placeholder Project logo"
           width={64}
           height={64}
           className="mx-auto mb-6"
         />
-        <h1 className="text-2xl font-semibold">Blank Project</h1>
+        <h1 id="landing-heading" className="text-2xl font-semibold">Blank Project</h1>
         <p className="text-muted-foreground mt-2">
           Your project is ready. Start building.
         </p>
 
         {/* Dev-only dangerous action */}
         {import.meta.env.DEV && (
-          <div className="mt-6">
+          <div className="mt-6" role="group" aria-labelledby="dev-actions-heading">
+            <span id="dev-actions-heading" className="sr-only">Developer actions</span>
             <Button
               variant="destructive"
               onClick={handleWipe}
               disabled={wiping}
+              aria-disabled={wiping}
+              aria-busy={wiping}
+              type="button"
+              title="Reset the development database"
             >
               {wiping ? "Resetting..." : "Reset Database"}
             </Button>
+            <p
+              className="sr-only"
+              role="status"
+              aria-live="polite"
+            >
+              {wiping ? "Database reset in progress." : "Idle."}
+            </p>
           </div>
         )}
       </div>
