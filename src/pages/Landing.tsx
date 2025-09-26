@@ -7,7 +7,7 @@ import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 
 export default function Landing() {
-  const wipeAll = useMutation(api.maintenance.wipeAll);
+  const wipeAll = useMutation((api as any).maintenance.wipeAll);
   const [wiping, setWiping] = useState(false);
   const handleWipe = async () => {
     setWiping(true);
