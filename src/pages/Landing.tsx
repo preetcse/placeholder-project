@@ -7,36 +7,21 @@ export default function Landing() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen flex flex-col"
+      transition={{ duration: 0.3 }}
+      className="min-h-screen flex items-center justify-center"
     >
-
-      
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <div className="max-w-5xl mx-auto relative px-4">
-        {/* TODO: landing page goes here; replace with the landing page */}
-        <div className="flex justify-center">
-          <img
-            src="./logo.svg"
-            alt="Lock Icon"
-            width={64}
-            height={64}
-            className="rounded-lg mb-8 mt-24"
-          />
-        </div>
-        <div className="flex items-center justify-center">
-          <Loader className="h-8 w-8 animate-spin mr-4" />
-          <a
-            href="https://vly.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary underline hover:text-primary/80 transition-colors"
-          >
-            vly.ai
-          </a>&nbsp; is generating your project...
-        </div>
-        </div>
+      <div className="text-center">
+        <img
+          src="./logo.svg"
+          alt="Logo"
+          width={64}
+          height={64}
+          className="mx-auto mb-6"
+        />
+        <h1 className="text-2xl font-semibold">Blank Project</h1>
+        <p className="text-muted-foreground mt-2">
+          Your project is ready. Start building.
+        </p>
       </div>
     </motion.div>
   );
