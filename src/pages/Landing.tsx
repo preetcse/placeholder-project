@@ -23,6 +23,20 @@ export default function Landing() {
     }
   };
 
+  // Build correct URLs for scripts located in src/js using Vite's URL resolution.
+  // This preserves original script execution order and behavior.
+  const scripts = [
+    new URL("../js/main.js", import.meta.url).href,
+    new URL("../js/items.js", import.meta.url).href,
+    new URL("../js/business.js", import.meta.url).href,
+    new URL("../js/carAds.js", import.meta.url).href,
+    new URL("../js/clothing.js", import.meta.url).href,
+    new URL("../js/datingAds.js", import.meta.url).href,
+    new URL("../js/houseAds.js", import.meta.url).href,
+    new URL("../js/mixed.js", import.meta.url).href,
+    new URL("../js/workAds.js", import.meta.url).href,
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -34,7 +48,7 @@ export default function Landing() {
     >
       {/* Load your original JS files from /js without changing their logic.
          Update this list with the exact filenames in your repo if different. */}
-      <ScriptLoader scripts={["/js/main.js", "/js/ads.js"]} />
+      <ScriptLoader scripts={scripts} />
 
       <div className="text-center" role="region" aria-label="Landing content">
         {/* Dedicated mount point for your ad scripts */}

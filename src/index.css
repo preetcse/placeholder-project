@@ -1,2 +1,2 @@
 /* Bridge your original CSS into the React app */
-@import "/styles.css";
+@import "./styles.css";
