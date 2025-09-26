@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { ScriptLoader } from "@/components/ScriptLoader";
 
 export default function Landing() {
   const wipeAll = useMutation((api as any).maintenance.wipeAll);
@@ -31,7 +32,14 @@ export default function Landing() {
       role="main"
       aria-labelledby="landing-heading"
     >
+      {/* Load your original JS files from /js without changing their logic.
+         Update this list with the exact filenames in your repo if different. */}
+      <ScriptLoader scripts={["/js/main.js", "/js/ads.js"]} />
+
       <div className="text-center" role="region" aria-label="Landing content">
+        {/* Dedicated mount point for your ad scripts */}
+        <div id="ad-root" className="mb-4" aria-label="Advertisement container" />
+
         <img
           src="./logo.svg"
           alt="Placeholder Project logo"
